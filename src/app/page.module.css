@@ -1,0 +1,7 @@
+.animateImg {
+  transition: transform 0.2s ease-out;
+}
+
+.animateImg:hover {
+  transform: translateY(-20px);
+}
