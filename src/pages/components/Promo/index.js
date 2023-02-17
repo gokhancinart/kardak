@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import classes from 'src/app/page.module.css'
 export default function Promo() {
+
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
@@ -13,9 +14,9 @@ export default function Promo() {
 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-  
+
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-gray-50">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
@@ -36,14 +37,14 @@ export default function Promo() {
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100`} style={{ transform: `translateY(-${scrollTop * 0.8}px)` }}>
+                      <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100`} style={{ transform: `translateY(-${scrollTop * 1}px)` }}>
                         <img
                           src="/images/cup1.jpg"
                           alt=""
                           className={`h-full w-full object-cover object-center`}
                         />
                       </div>
-                      <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg`} style={{ transform: `translateY(-${scrollTop * 1}px)` }}>
+                      <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg`} style={{ transform: `translateY(-${scrollTop * 0.8}px)` }}>
                         <img
                           src="/images/cup2.jpg"
                           alt=""
@@ -95,11 +96,33 @@ export default function Promo() {
               </div>
 
               <a
+                className="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
                 href="#"
-                className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
               >
-                Products
+                <span
+                  className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
+
+                <span className="text-sm font-medium transition-all group-hover:mr-4">
+                  Products
+                </span>
               </a>
+
             </div>
           </div>
         </div>
