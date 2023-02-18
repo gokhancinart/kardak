@@ -9,7 +9,7 @@ const products = [
     href: '#',
     imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-01-02a4af74.jpg',
     imageAlt: "Paper Cup.",
-    price: '$35',
+    code: '#001',
     cc: '180 cc',
   },
   {
@@ -18,7 +18,7 @@ const products = [
     href: '#',
     imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-02-03e795ab.jpg',
     imageAlt: "Paper Cup",
-    price: '$35',
+    code: '#002',
     cc: '180 cc',
   },
   {
@@ -27,7 +27,7 @@ const products = [
     href: '#',
     imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-03-00f346e8.jpg',
     imageAlt: "Paper Cup",
-    price: '$35',
+    code: '#003',
     cc: '180 cc',
   },
   {
@@ -36,7 +36,7 @@ const products = [
     href: '#',
     imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-04-027e55bd.jpg',
     imageAlt: "Paper Cup",
-    price: '$35',
+    code: '#004',
     cc: '180 cc',
   },
 ]
@@ -55,28 +55,23 @@ export default function Products( {dataId} ) {
               <Image 
                 src={product.imageSrc}
                 alt={product.imageAlt}
-                width={1000}
-                height={1000}
+                width={300}
+                height={300}
                 quality={100}
-                priority
+                priority={true}
                 className="h-full w-full object-cover object-center lg:h-full lg:w-full"
               />
-                {/* <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                /> */}
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-base font-bold text-gray-700">
+                  <h3 className="text-sm leading-3 font-black text-gray-700">
                     <Link href={product.href}>
                       {product.name}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.cc}</p>
+                  <p className="mt-1 text-xs text-gray-500">{product.cc}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                <p className="text-xs font-bold text-gray-900">{product.code}</p>
               </div>
             </div>
           ))}

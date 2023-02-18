@@ -1,7 +1,7 @@
 export default function Contact ( {dataId} ) {
   return (
-    <section id={dataId} className="bg-white">
-      <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+    <section id={dataId} className="bg-gray-50">
+      <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h3 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600 text-left">Contact Us</h3>
         <h2 className="text-2xl font-bold tracking-tight text-gray-900 text-left">Suitable for Any Hot or Cold Beverage</h2>
         <iframe

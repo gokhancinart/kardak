@@ -18,7 +18,7 @@ const navigation = [
     current: false 
   },
   { 
-    name: 'Product Types', 
+    name: 'Practical Solution', 
     activeSection: 'Feature', 
     href: '#feature', 
     current: false 
