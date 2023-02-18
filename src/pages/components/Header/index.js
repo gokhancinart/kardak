@@ -1,22 +1,69 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Products', href: '#', current: false },
-  { name: 'About Us', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
+  { 
+    name: 'Home', 
+    activeSection: 'Promo', 
+    href: '#promo', 
+    current: true 
+  },
+  { 
+    name: 'Products',
+    activeSection: 'Products',  
+    href: '#products', 
+    current: false 
+  },
+  { 
+    name: 'Product Types', 
+    activeSection: 'Feature', 
+    href: '#feature', 
+    current: false 
+  },
+  { 
+    name: 'Contact', 
+    activeSection: 'ContactUs', 
+    href: '#contactus', 
+    current: false 
+  },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example( {dataId} ) {
+
+  const [activeSection, setActiveSection] = useState('promo');
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    function handleScroll () {
+      const scrollPosition = window.scrollY + 100;
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        console.log(activeSection)
+        if (
+          scrollPosition > sectionTop &&
+          scrollPosition <= sectionTop + sectionHeight
+        ) {
+          setActiveSection(sectionId);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+    
+  }, [activeSection]);
+
   return (
-    <Disclosure as="nav" className="bg-gray-800 sticky top-0 z-10">
+    <Disclosure data-id={dataId} as="nav" className="bg-gray-800 sticky top-0 z-10">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -34,7 +81,7 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <div className='block h-8 w-auto lg:hidden'>K</div>
+                  <div className='block h-8 w-auto lg:hidden text-white font-black'>KÜRTDAK</div>
                   <div className='hidden w-auto lg:block text-white font-black'>
                     <Link href='/'>
                       KARDAK
@@ -47,11 +94,13 @@ export default function Example() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
+                        className={ activeSection === item.activeSection.toLowerCase() ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' }
                         aria-current={item.current ? 'page' : undefined}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const target = document.querySelector(`#${item.activeSection.toLowerCase()}`);
+                          target.scrollIntoView({ behavior: 'smooth' });
+                        }}
                       >
                         {item.name}
                       </a>

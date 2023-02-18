@@ -22,9 +22,9 @@ const callouts = [
     href: '#',
   },
 ]
-export default function Feature() {
+export default function Feature( {dataId} ) {
   return (
-    <div className="bg-white">
+    <section id={dataId} className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <h3 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Product Types</h3>
@@ -49,6 +49,6 @@ export default function Feature() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

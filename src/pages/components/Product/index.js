@@ -38,10 +38,9 @@ const products = [
   },
 ]
 
-export default function Products() {
+export default function Products( {dataId} ) {
   return (
-    <div className="bg-gray-50 relative">
-      {/* <div className="bg-[url('/images/background/coffie-background.png')] bg-local md:bg-fixed absolute inset-0 opacity-5"></div> */}
+    <section id={dataId} className="bg-gray-50 relative">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h3 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Product</h3>
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Suitable for Any Hot or Cold Beverage</h2>
@@ -72,6 +71,6 @@ export default function Products() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
