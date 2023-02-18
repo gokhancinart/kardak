@@ -1,40 +1,43 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image"
+import Link from "next/link"
+
 const products = [
   {
     id: 1,
-    name: 'P.T Coffie',
+    name: '7 Oz Paper Cup',
     href: '#',
-    imageSrc: 'https://i.pinimg.com/564x/47/6c/ce/476cce184489e87ad9c0aaa9725f0813.jpg',
+    imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-01-02a4af74.jpg',
     imageAlt: "Paper Cup.",
     price: '$35',
-    color: 'Black',
+    cc: '180 cc',
   },
   {
     id: 2,
-    name: 'Asahi Coffie',
+    name: '7 Oz Paper Cup',
     href: '#',
-    imageSrc: 'https://i.pinimg.com/564x/1a/4e/05/1a4e057adf6f99a7aed9ece8e9b46d33.jpg',
+    imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-02-03e795ab.jpg',
     imageAlt: "Paper Cup",
     price: '$35',
-    color: 'Black',
+    cc: '180 cc',
   },
   {
     id: 3,
-    name: 'Blue Coffie',
+    name: '7 Oz Paper Cup',
     href: '#',
-    imageSrc: 'https://i.pinimg.com/564x/c9/4d/b8/c94db8816b21ceb03d8a9063b8abd244.jpg',
+    imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-03-00f346e8.jpg',
     imageAlt: "Paper Cup",
     price: '$35',
-    color: 'Black',
+    cc: '180 cc',
   },
   {
     id: 4,
-    name: '3D Coffie',
+    name: '7 Oz Paper Cup',
     href: '#',
-    imageSrc: 'https://i.pinimg.com/564x/43/4e/f8/434ef8b8841017dc35f39dfc6c357c28.jpg',
+    imageSrc: 'https://www.ayguncup.com/img/proser-m/7oz-karton-bardak-04-027e55bd.jpg',
     imageAlt: "Paper Cup",
     price: '$35',
-    color: 'Black',
+    cc: '180 cc',
   },
 ]
 
@@ -49,21 +52,29 @@ export default function Products( {dataId} ) {
           {products.map((product) => (
             <div key={product.id} className="group relative">
               <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                <img
+              <Image 
+                src={product.imageSrc}
+                alt={product.imageAlt}
+                width={1000}
+                height={1000}
+                quality={100}
+                priority
+                className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              />
+                {/* <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                />
+                /> */}
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
-                      <span aria-hidden="true" className="absolute inset-0" />
+                  <h3 className="text-base font-bold text-gray-700">
+                    <Link href={product.href}>
                       {product.name}
-                    </a>
+                    </Link>
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                  <p className="mt-1 text-sm text-gray-500">{product.cc}</p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">{product.price}</p>
               </div>

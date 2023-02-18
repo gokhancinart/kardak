@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client';
-import Header from "../pages/components/Header"
+import Header from "@/pages/components/Header"
 import Products from '@/pages/components/Product';
-import Promo from "../pages/components/Promo"
-import Footer from "../pages/components/Footer"
+import Promo from "@/pages/components/Promo"
+import Footer from "@/pages/components/Footer"
 import Feature from '@/pages/components/Feature';
+import Contact from "@/pages/components/Contact";
+
 
 export default function Home() {
   return (
@@ -20,6 +22,9 @@ export default function Home() {
       />
       <Feature 
         dataId="feature"
+      />
+      <Contact 
+        dataId="contactus"
       />
       <Footer 
         dataId="footer"

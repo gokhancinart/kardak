@@ -39,6 +39,17 @@ export default function Example( {dataId} ) {
 
   const [activeSection, setActiveSection] = useState('promo');
 
+  function scrollToSection (e) {
+    e.preventDefault();
+    const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
+    const idSelect = document.querySelector('#promo');
+    if (target == idSelect) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+
   useEffect(() => {
     const sections = document.querySelectorAll('section');
     function handleScroll () {
@@ -47,7 +58,6 @@ export default function Example( {dataId} ) {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         const sectionId = section.getAttribute('id');
-        console.log(activeSection)
         if (
           scrollPosition > sectionTop &&
           scrollPosition <= sectionTop + sectionHeight
@@ -96,11 +106,7 @@ export default function Example( {dataId} ) {
                         href={item.href}
                         className={ activeSection === item.activeSection.toLowerCase() ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium' }
                         aria-current={item.current ? 'page' : undefined}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const target = document.querySelector(`#${item.activeSection.toLowerCase()}`);
-                          target.scrollIntoView({ behavior: 'smooth' });
-                        }}
+                        onClick={scrollToSection}
                       >
                         {item.name}
                       </a>
@@ -139,8 +145,7 @@ export default function Example( {dataId} ) {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    activeSection === item.activeSection.toLowerCase() ? 'bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium','block'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
