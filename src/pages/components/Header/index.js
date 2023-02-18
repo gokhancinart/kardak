@@ -81,7 +81,7 @@ export default function Example( {dataId} ) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <div className='block h-8 w-auto lg:hidden text-white font-black'>KÜRTDAK</div>
+                  <div className='flex items-center h-8 w-auto lg:hidden text-white font-black'>KÜRTDAK</div>
                   <div className='hidden w-auto lg:block text-white font-black'>
                     <Link href='/'>
                       KARDAK
