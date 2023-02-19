@@ -1,49 +1,50 @@
-import { FaMapMarkedAlt, FaPhoneSquareAlt } from 'react-icons/fa'
-export default function Stats() {
+import { FaMapMarkedAlt, FaPhoneSquareAlt, FaBusinessTime } from 'react-icons/fa'
+export default function Stats({ position, background, paddingMobile, paddingDesktop }) {
 
-  function scrollToSection (e) {
-    e.preventDefault();
-    const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
-    const idSelect = document.querySelector('#promo');
-    if (target == idSelect) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
+  const stats = [
+    {
+      id: 1,
+      name: 'Maltepe, Davutpaşa Cd. No:15, 34010 Zeytinburnu/İstanbul',
+      value: 'Our address',
+      icon: <FaMapMarkedAlt className='bg-indigo-500 text-white p-2 text-4xl rounded-md' />
+    },
+    {
+      id: 2,
+      name: 'Tel : 0537 858 00 00',
+      name2: 'Email : info@kardak.com',
+      value: 'You can reach us by phone',
+      icon: <FaPhoneSquareAlt className='bg-indigo-500 text-white p-2 text-4xl rounded-md' />
+    },
+    {
+      id: 3,
+      name: 'Pazartesi - Cuma: 08:00 - 20:00',
+      name2: 'Cumartesi: 08:00 - 13:00',
+      value: 'Our working hours',
+      icon: <FaBusinessTime className='bg-indigo-500 text-white p-2 text-4xl rounded-md' />
+    },
+  ]
 
   return (
-    <div className="bg-white">
-      <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-        <dl className="flex justify-center sm:grid max-w-screen-md gap-8 sm:gap-3 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white sm:divide-x ">
-          <div className="flex flex-col items-center justify-start sm:justify-center sm:flex-row">
-            <dt className="text-1xl md:text-3xl font-extrabold bg-indigo-600 text-white rounded-md px-1 sm:px-3 py-2">
-              <FaMapMarkedAlt className='w-6'/>
-            </dt>
-            <div className='grid mt-1 sm:ml-2'>
-              <dt className="text-1xl md:text-2xl font-extrabold"><a href='#contactus' onClick={ scrollToSection }>Adress</a></dt>
-              <dd className="font-light text-gray-500 dark:text-gray-400">developers</dd>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-start sm:justify-center sm:flex-row">
-            <dt className="text-1xl md:text-3xl font-extrabold bg-indigo-600 text-white rounded-md px-1 sm:px-3 py-2">
-              <FaMapMarkedAlt className='w-6'/>
-            </dt>
-            <div className='grid mt-1 sm:ml-2'>
-              <dt className="text-1xl md:text-2xl font-extrabold">Adress</dt>
-              <dd className="font-light text-gray-500 dark:text-gray-400">developers</dd>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-start sm:justify-center sm:flex-row">
-            <dt className="text-1xl md:text-3xl font-extrabold bg-indigo-600 text-white rounded-md px-1 sm:px-3 py-2">
-              <FaMapMarkedAlt className='w-6'/>
-            </dt>
-            <div className='grid mt-1 sm:ml-2'>
-              <dt className="text-1xl md:text-2xl font-extrabold">Adress</dt>
-              <dd className="font-light text-gray-500 dark:text-gray-400">developers</dd>
-            </div>
-          </div>
-        </dl>
+    <div className={background}>
+      <div className={`${paddingMobile} ${paddingDesktop}`}>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <dl className={`grid grid-cols-1 gap-y-16 gap-x-8 text-center lg:grid-${position}`}>
+            {stats.map((stat) => (
+              <div key={stat.id} className="sm:mx-auto flex max-w-xs flex-row gap-y-4 w-full">
+                <dd className="order-first text-3xl font-bold tracking-tight text-indigo-500 sm:text-xl flex">
+                  <span className='mt-1'>{stat.icon}</span>
+                </dd>
+                <dt className="text-sm leading-5 text-gray-600 text-left pl-3">
+                  <span className='order-first text-xl font-bold tracking-tight text-indigo-500 sm:text-xl flex'>{stat.value}</span>
+                  <div className='flex flex-col '>
+                    <div>{stat.name}</div>
+                    <div>{stat.name2 ? stat.name2 : ''}</div>
+                  </div>
+                </dt>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </div>
   );

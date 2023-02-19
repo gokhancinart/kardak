@@ -1,57 +1,73 @@
-import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import { FaFacebookF, FaInstagram, FaTwitter, FaListUl } from 'react-icons/fa'
 
-export default function Footer( {dataId} ) {
+export default function Footer({ dataId }) {
+
+  function scrollToSection(e) {
+    e.preventDefault();
+    const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
+    const idSelect = document.querySelector('#promo');
+    if (target == idSelect) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
-    <section id={dataId} className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+    <footer id={dataId} className="relative isolate overflow-hidden bg-gray-900 py-12 sm:py-14">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
-              Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt
-              dolore.
+            <div onClick={scrollToSection} className='flex items-center text-2xl font-bold tracking-tight text-white sm:text-2xl relative'>
+              <a href='#promo' className='absolute inset-0'></a>
+              <span><svg className='fill-white' xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24"><path d="M18.79,5.67a1.5,1.5,0,0,0-1.16-1.46l-.38-1.38a1.081,1.081,0,0,0-1.05-.76H7.79a1.06,1.06,0,0,0-1.04.76L6.37,4.21A1.537,1.537,0,0,0,5.21,5.76,1.476,1.476,0,0,0,6.27,7.18l.1,2.77a.75.75,0,0,0-.42.22.768.768,0,0,0-.21.56l.24,5.76a.759.759,0,0,0,.65.72l.08,2.22a2.579,2.579,0,0,0,2.59,2.5h5.39a2.581,2.581,0,0,0,2.6-2.5l.08-2.22a.76.76,0,0,0,.64-.72l.24-5.76a.768.768,0,0,0-.21-.56.72.72,0,0,0-.41-.22l.1-2.77A1.534,1.534,0,0,0,18.79,5.67Zm-11-2.6,8.49.03.3,1.07H7.44Zm8.5,16.33a1.578,1.578,0,0,1-1.6,1.53H9.3A1.575,1.575,0,0,1,7.71,19.4l-.08-2.18h8.74ZM9.9,13.58a2.1,2.1,0,1,1,2.1,2.1A2.1,2.1,0,0,1,9.9,13.58Zm6.73-3.65H7.37l-.1-2.67h9.45Zm.66-3.67H6.71a.522.522,0,0,1-.5-.59.5.5,0,0,1,.5-.5H17.29a.528.528,0,0,1,.5.59A.5.5,0,0,1,17.29,6.26Z" /></svg></span>
+              <span>KARDAK</span>
+            </div>
+            {/* <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">KARDAK</h2> */}
+            <div className='SocialMedia flex gap-4 mt-4'>
+              <div className='bg-blue-500 hover:bg-white rounded-md ease-in duration-200'>
+                <Link href="https://www.facebook.com/kardak">
+                  <FaFacebookF className="text-white hover:text-blue-500 text-3xl p-2" />
+                </Link>
+              </div>
+              <div className='bg-pink-500 hover:bg-white rounded-md ease-in duration-200'>
+                <Link href="https://www.instagram.com/kardak">
+                  <FaInstagram className="text-white hover:text-pink-500 text-3xl p-2" />
+                </Link>
+              </div>
+              <div className='bg-blue-400 hover:bg-white rounded-md ease-in duration-200'>
+                <Link href="https://twitter.com/kardak">
+                  <FaTwitter className="text-white hover:text-blue-400 text-3xl p-2" />
+                </Link>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-5 text-gray-300">
+              Paper cups are a type of packaging used for carrying and serving liquid beverages. Due to their eco-friendly features and ease of use, they have become a popular choice for packaging coffee, tea, cold drinks, and other liquid products.
             </p>
-            <div className="mt-6 flex max-w-md gap-x-4">
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="min-w-0 flex-auto rounded-md border border-white/10 bg-white/5 px-[calc(theme(spacing.4)-1px)] py-[calc(theme(spacing[1.5])-1px)] text-base leading-7 text-white placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                placeholder="Enter your email"
-              />
-              <button
-                type="submit"
-                className="flex-none rounded-md bg-indigo-500 py-1.5 px-3.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
-                Subscribe
-              </button>
+          </div>
+          <div className="flex w-full flex-col sm:flex-row items-startmt-2 leading-7 text-white text-sm gap-2 sm:gap-8 justify-end item-start sm:items-end">
+            <div>
+              <a href="#promo" onClick={scrollToSection}>
+                Home
+              </a>
+            </div>
+            <div>
+              <a href="#products" onClick={scrollToSection}>
+                Products
+              </a>
+            </div>
+            <div>
+              <a href="#feature" onClick={scrollToSection}>
+                Practical Solutions
+              </a>
+            </div>
+            <div>
+              <a href="#contactus" onClick={scrollToSection}>
+                Contact Us
+              </a>
             </div>
           </div>
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
-            <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
-              <dd className="mt-2 leading-7 text-gray-400">
-                Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.
-              </dd>
-            </div>
-            <div className="flex flex-col items-start">
-              <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" />
-              </div>
-              <dt className="mt-4 font-semibold text-white">No spam</dt>
-              <dd className="mt-2 leading-7 text-gray-400">
-                Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.
-              </dd>
-            </div>
-          </dl>
         </div>
       </div>
       <svg
@@ -78,6 +94,6 @@ export default function Footer( {dataId} ) {
           </linearGradient>
         </defs>
       </svg>
-    </section>
+    </footer>
   )
 }

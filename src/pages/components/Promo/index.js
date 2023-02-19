@@ -1,12 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Stats from '../Stats';
 import classes from 'src/app/page.module.css'
 
 export default function Promo({ dataId }) {
 
   const [scrollTop, setScrollTop] = useState(0);
+
+  function scrollToSection (e) {
+    e.preventDefault();
+    const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
 
   useEffect(() => {
     const onScroll = (event) => {
@@ -15,7 +22,7 @@ export default function Promo({ dataId }) {
     window.addEventListener('scroll', onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [scrollTop]);
 
   return (
     <section id={dataId} className="bg-gray-50">
@@ -42,56 +49,84 @@ export default function Promo({ dataId }) {
                     <div className="flex items-center space-x-6 lg:space-x-8">
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg sm:opacity-0 lg:opacity-100`} style={{ transform: `translateY(-${scrollTop * 1}px)` }}>
-                          <img
-                            src="/images/cup1.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/cup1.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 0.8}px)` }}>
-                          <img
-                            src="/images/cup2.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/cup2.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                       </div>
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 0.5}px)` }}>
-                          <img
-                            src="/images/cup3.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/cup3.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 0.7}px)` }}>
-                          <img
-                            src="/images/starbucks.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/starbucks.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 0.9}px)` }}>
-                          <img
-                            src="/images/thlil.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/thlil.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                       </div>
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 1}px)` }}>
-                          <img
-                            src="/images/cup4.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/cup4.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                         <div className={`${classes.animateImg} h-64 w-44 overflow-hidden rounded-lg drop-shadow-lg`} style={{ transform: `translateY(-${scrollTop * 1.2}px)` }}>
-                          <img
-                            src="/images/cup5.jpg"
-                            alt=""
-                            className={`h-full w-full object-cover object-center`}
+                          <Image 
+                            src={`/images/cup5.jpg`}
+                            alt="paper cup"
+                            width={300}
+                            height={300}
+                            quality={100}
+                            priority={true}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                           />
                         </div>
                       </div>
@@ -99,10 +134,8 @@ export default function Promo({ dataId }) {
                   </div>
                 </div>
 
-                <a
-                  className="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
-                  href="#"
-                >
+                <span
+                  className="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500">
                   <span
                     className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4"
                   >
@@ -122,17 +155,25 @@ export default function Promo({ dataId }) {
                     </svg>
                   </span>
 
-                  <span className="text-sm font-medium transition-all group-hover:mr-4">
+                  <a
+                    href='#products' 
+                    onClick={ scrollToSection }
+                    className="text-sm font-medium transition-all group-hover:mr-4">
                     Products
-                  </span>
-                </a>
+                  </a>
+                </span>
 
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Stats />
+      <Stats 
+        background="bg-white"
+        position="cols-3"
+        paddingMobile="py-14"
+        paddingDesktop="sm:py-32"
+      />
     </section>
   )
 }
