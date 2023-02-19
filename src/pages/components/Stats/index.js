@@ -1,6 +1,17 @@
-import Link from 'next/link';
 import { FaMapMarkedAlt, FaPhoneSquareAlt } from 'react-icons/fa'
 export default function Stats() {
+
+  function scrollToSection (e) {
+    e.preventDefault();
+    const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
+    const idSelect = document.querySelector('#promo');
+    if (target == idSelect) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <div className="bg-white">
       <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
@@ -10,8 +21,7 @@ export default function Stats() {
               <FaMapMarkedAlt className='w-6'/>
             </dt>
             <div className='grid mt-1 sm:ml-2'>
-              <Link href='#promo'>seas</Link> 
-              <dt className="text-1xl md:text-2xl font-extrabold">Adress</dt>
+              <dt className="text-1xl md:text-2xl font-extrabold"><a href='#contactus' onClick={ scrollToSection }>Adress</a></dt>
               <dd className="font-light text-gray-500 dark:text-gray-400">developers</dd>
             </div>
           </div>
