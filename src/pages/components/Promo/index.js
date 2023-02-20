@@ -9,7 +9,7 @@ export default function Promo({ dataId }) {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  function scrollToSection (e) {
+  function scrollToSection(e) {
     e.preventDefault();
     const target = document.querySelector(`#${e.target.getAttribute('href').replace('#', '')}`);
     target.scrollIntoView({ behavior: 'smooth' });
@@ -17,12 +17,13 @@ export default function Promo({ dataId }) {
 
   useEffect(() => {
     const onScroll = (event) => {
-      setScrollTop(event.target.documentElement.scrollTop * 0.2);
+      const scrollTop = event.target.documentElement.scrollTop * 0.2;
+      setScrollTop(scrollTop);
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [scrollTop]);
+  }, []);
 
   return (
     <section id={dataId} className="bg-gray-50">
@@ -32,7 +33,7 @@ export default function Promo({ dataId }) {
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-lg">
               <h1 className="font text-4xl font-black tracking-tight text-gray-900 sm:text-6xl">
-               Versatile Cups for Every Need with Our Wide Range of Products
+                  Versatile Cups for Every Need with Our Wide Range of Products
               </h1>
               <p className="mt-4 text-lg sm:text-xl text-gray-500">
                 By choosing our eco-friendly cups, you're not only reducing your carbon footprint, but also supporting a healthier planet for generations to come.
