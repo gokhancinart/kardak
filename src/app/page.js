@@ -29,6 +29,7 @@ export default function Home() {
       <Footer 
         dataId="footer"
       />
+      aşlskdlaksd
     </main>
   )
 }
