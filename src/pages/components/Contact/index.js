@@ -8,7 +8,7 @@ export default function Contact ( {dataId} ) {
         <div className="grid-col-1 grid-row-2 gap-8 lg:grid lg:grid-cols-2 lg:gap-12 mt-6">
           <div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96245.22856242837!2d28.7135861690018!3d41.076349928954684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caafe253f39f9b%3A0x349572fb9a436310!2sEsenler%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1676761239795!5m2!1str!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.7096713537126!2d28.865883692867186!3d41.06719458048982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab006228e6a99%3A0x566e4c44e9073a7b!2sGD1%20Blok!5e0!3m2!1str!2str!4v1705499990377!5m2!1str!2str"
               width="600"
               height="450"
               className="w-full h-96 sm:h-full m-0 rounded-md overflow-hidden"

@@ -6,14 +6,14 @@ export default function Stats({ position, background, paddingMobile, paddingDesk
   const stats = [
     {
       id: 1,
-      name: 'Maltepe, Davutpaşa Cd. No:15, 34010 Zeytinburnu/İstanbul',
+      name: 'Orucreis Mah. Tekstilkent CAD. Tekstilkent GD1 Blok No:Z19, İstanbul, Esenler, Turkey 34220',
       value: 'Our address',
       icon: <FaMapMarkedAlt className='bg-indigo-500 text-white p-2 text-4xl rounded-md' />,
       duration:0.3,
     },
     {
       id: 2,
-      name: 'Tel : 0537 858 00 00',
+      name: 'Tel : 0539 639 73 63',
       name2: 'Email : info@kardak.com',
       value: 'You can reach us by phone',
       icon: <FaPhoneSquareAlt className='bg-indigo-500 text-white p-2 text-4xl rounded-md' />,
